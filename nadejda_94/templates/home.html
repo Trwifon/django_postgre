@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+  <style>
+    .home-container{
+      display: grid;
+      grid-template-columns: 1fr 3fr
+    }
+  </style>
+
+  <div class="home_container">
+
+    <div>
+      <h3>Меню</h3>
+      <hr>
+      <a href="/create-record/">
+        <h4>Нов запис</h4>
+      </a>
+
+      <a href="/day-reports/">
+        <h4>Дневен отчет</h4>
+      </a>
+
+      <a href="/firm-reports/">
+        <h4>Фирмен отчет</h4>
+      </a>
+
+      <a href="/show-totals/">
+        <h4>Каса</h4>
+      </a>
+
+    </div>
+
+    <div>
+
+
+
+
+    </div>
+
+  </div>
+
+{% endblock content %}
