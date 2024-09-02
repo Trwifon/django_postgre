@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h3>{{title}}</h3>
+
+<div>
+    <form method="POST" action="{% url 'create_record' %}">
+        <input type="submit" name="bal" value="Баланс и поръчка" />
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="save" value="Запис" />
+    </form>
+</div>
+
+{% endblock content %}
