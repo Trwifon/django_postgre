@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="dict.*" />
+          <option value="Main.Main.labelOpenBalance" />
+          <option value="Main.Main.comboBoxFirm" />
+          <option value="ex_04.main_app.models.Location.objects" />
+          <option value="ex_04.main_app.models.Location.*" />
+          <option value="ex_04.main_app.models.Car.objects" />
+          <option value="ex_04.orm_skeleton.urls.main_app" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

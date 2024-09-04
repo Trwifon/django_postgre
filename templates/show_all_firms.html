@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<table style="border: 1px solid; border-collapse: collapse; text-align: center">
+    <tr>
+        <th style="border: 1px solid black; text-align: center">id</th>
+        <th style="border: 1px solid black; text-align: center">Фирма</th>
+        <th style="border: 1px solid black; text-align: center">Салдо</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black">Сума:</td>
+        <td style="border: 1px solid black">{{total_sum}}</td>
+    </tr>
+    {% for record in records %}
+    <tr>
+        <td style="border: 1px solid black">{{record.id}}</td>
+        <td style="border: 1px solid black">{{record.name}}</td>
+        <td style="border: 1px solid black">{{record.balance}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

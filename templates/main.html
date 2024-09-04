@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Надежда-94</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts."}"
+</head>
+<body>
+  {% include 'nav_bar.html' %}
+
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+  {% block content %}
+
+
+  {% endblock content %}
+
+</body>
+</html>

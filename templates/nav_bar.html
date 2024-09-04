@@ -1,0 +1,44 @@
+<div id="el1">
+    <a href="/">
+        <h2>офис Поръчки</h2>
+    </a>
+</div>
+
+<div id="el2">
+    <a href="/create-record/">
+        <h4>Нов запис</h4>
+    </a>
+</div>
+
+<div id="el3">
+  <a href="/day-reports/">
+    <h4>Дневен отчет</h4>
+  </a>
+</div>
+
+<div id="el4">
+  <a href="/firm-reports/">
+    <h4>Фирмен отчет</h4>
+  </a>
+</div>
+
+<div id="el5">
+  <a href="/month-reports/">
+    <h4>Месечни отчети</h4>
+  </a>
+</div>
+
+<div id="el6">
+  <a href="/show-totals/">
+    <h4>Каса</h4>
+  </a>
+</div>
+
+{% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Изход</a>
+{% else %}
+    <a href="{% url 'login' %}">Вход</a>
+{% endif %}
+
+<hr>
+

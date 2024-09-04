@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <label>Потребителско име</label>
+        <input type="text" name="username" placeholder="Въведи потребителко име">
+
+        <label>Парола</label>
+        <input type="password" name="password" placeholder="Въведи парола">
+
+        <input type="submit" value="OK" />
+    </form>
+</div>
+
+{% endblock content %}
