@@ -1,9 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from datetime import datetime
 from django.db.models import Sum, Count
-from .forms import RecordForm, PartnerForm, WarehouseForm, MonthWarehouseForm
+from .forms import RecordForm, PartnerForm, WarehouseForm, MonthWarehouseForm, NewPartnerForm
 from .models import Record, Partner, Order
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -135,13 +136,17 @@ def firm_reports(request):
         if int(partner) == 2:
             result = Partner.objects.all().annotate(total = Sum('balance')).order_by('name')
             total = result[0].total
-            payload = {'records': result, 'total': 'test'}
+            payload = {'records': result, 'total_sum': '0'}
             return render(request, template_name='show_all_firms.html', context=payload)
 
         results = Record.objects.filter(partner_id=partner).order_by('id')
-        total = results.reverse()[0].balance
-        payload = {'records': results, 'total_sum': total}
 
+        if results:
+            total = results.reverse()[0].balance
+        else:
+            total = 0
+
+        payload = {'records': results, 'total_sum': total}
         return render(request, template_name='show_reports.html', context=payload)
 
     context = {'title': title, 'form': form}
@@ -166,6 +171,24 @@ def month_reports(request):
 
         payload = {'records': results}
         return render(request, template_name='show_reports.html', context=payload)
+
+    context = {'title': title, 'form': form}
+    return render(request, template_name='choices.html', context=context)
+
+
+def new_partner(request):
+    form = NewPartnerForm()
+    title = 'Нова фирма'
+
+    if request.method == 'POST':
+        form = NewPartnerForm(request.POST)
+
+        if not form.is_valid():
+            return HttpResponse('В базата вече има фирма с това име')
+
+        form.save()
+
+        return HttpResponse('Нов потребител')
 
     context = {'title': title, 'form': form}
     return render(request, template_name='choices.html', context=context)

@@ -36,6 +36,12 @@ class PartnerForm(ModelForm):
         fields = ['partner']
 
 
+class NewPartnerForm(ModelForm):
+    class Meta:
+        model = Partner
+        exclude = ['type']
+
+
 class WarehouseForm(forms.Form):
     warehouse = forms.ChoiceField(
         choices=WarehouseChoices.choices,
