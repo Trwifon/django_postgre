@@ -40,6 +40,10 @@ class NewPartnerForm(ModelForm):
     class Meta:
         model = Partner
         exclude = ['type']
+        labels = {
+            'name': 'Име',
+            'balance': 'Салдо',
+        }
 
 
 class WarehouseForm(forms.Form):

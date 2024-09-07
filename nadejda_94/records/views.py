@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 import pandas as pd
 
-CURRENT_WAREHOUSE = 'M'
+CURRENT_WAREHOUSE = 'O'
 
 def login_page(request):
     if request.method == 'POST':
@@ -135,10 +135,20 @@ def firm_reports(request):
             return render(request, template_name='show_reports.html', context=payload)
 
         if int(partner) == 2:
-            result = Partner.objects.all().annotate(total = Sum('balance')).order_by('name')
-            total = result[0].total
-            payload = {'records': result, 'total_sum': '0'}
-            return render(request, template_name='show_all_firms.html', context=payload)
+            result = Partner.objects.all().values('name', 'balance').order_by('name')
+            df = pd.DataFrame(list(result))
+
+            name = f"Firmi - {datetime.today().date()}"
+
+            response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            response['Content-Disposition'] = f'attachment; filename={name}.xlsx'
+
+            df.to_excel(response, index=False, engine='openpyxl')
+
+            return response
+
+            # payload = {'records': result}
+            # return render(request, template_name='show_all_firms.html', context=payload)
 
         results = Record.objects.filter(partner_id=partner).order_by('id')
 
@@ -161,6 +171,7 @@ def month_reports(request):
     if request.method == 'POST':
         form = MonthWarehouseForm()
         current_warehouse = request.POST.get('warehouse')
+        current_warehouse = current_warehouse if current_warehouse != 'M' else CURRENT_WAREHOUSE
         current_year = request.POST.get('year')
         current_month = request.POST.get('month')
 
