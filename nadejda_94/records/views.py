@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from datetime import datetime
-from django.db.models import Sum, Count
+from django.db.models import Sum
 from .forms import RecordForm, PartnerForm, WarehouseForm, MonthWarehouseForm, NewPartnerForm
 from .models import Record, Partner, Order
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+import pandas as pd
 
 CURRENT_WAREHOUSE = 'M'
 
@@ -252,6 +253,4 @@ def get_close_balance(partner_id, order_type, open_balance, amount):
         return int(open_balance) + int(amount)
     else:
         return int(open_balance) - int(amount)
-
-
 
