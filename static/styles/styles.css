@@ -1,9 +1,64 @@
-#el1 {display: inline-block;margin-right:10px;width:150px;}
-#el2 {display: inline-block;margin-right:10px;width:150px;}
-#el3 {display: inline-block;margin-right:10px;width:150px;}
-#el4 {display: inline-block;margin-right:10px;width:150px;}
-#el5 {display: inline-block;margin-right:10px;width:150px;}
-#el6 {display: inline-block;margin-right:10px;width:150px;}
-#el7 {display: inline-block;margin-right:10px;width:150px;}
+#el1 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el2 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el3 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el4 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el5 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el6 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el7 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el8 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+#el9 {display: inline-block;margin-right:10px;width:140px;text-align:center}
+
+main {
+    border: 2px solid blue;
+    background-color: #cbf3f0;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-container {
+  display: grid;
+  place-items: center;
+}
+
+form {
+    border: 2px solid blue;
+    border-radius: 8px;
+    background-color: #80ffdb;
+    width: 22%;
+    margin: 50px;
+    padding: 20px;
+    text-align: center;
+    color: #7393B3;
+}
+
+input, select {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #eeebd0;
+}
+
+#notes {
+   color: #7393B3;
+   font-size: 30px;
+}
+
+table {
+    border: 1px solid;
+    border-radius: 4px;
+    border-collapse: collapse;
+    text-align: center;
+    color: #0077b6;
+}
+
+th {
+    border: 1px solid;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+}
 
 

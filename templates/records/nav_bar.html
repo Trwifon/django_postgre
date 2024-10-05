@@ -1,56 +1,60 @@
 <div id="el1">
     <a href="/">
-        <h2>офис Поръчки</h2>
+        <h3>Надежда</h3>
     </a>
 </div>
 
 <div id="el2">
     <a href="/create-record/">
-        <h4>Нов запис</h4>
+        <h5>Нов запис</h5>
     </a>
 </div>
 
 <div id="el3">
   <a href="/day-reports/">
-    <h4>Дневен отчет</h4>
+    <h5>Дневен отчет</h5>
   </a>
 </div>
 
 <div id="el4">
   <a href="/firm-reports/">
-    <h4>Фирмен отчет</h4>
+    <h5>Фирмен отчет</h5>
   </a>
 </div>
 
 <div id="el5">
   <a href="/month-reports/">
-    <h4>Месечни отчети</h4>
+    <h5>Месечни отчети</h5>
   </a>
 </div>
 
 <div id="el6">
   <a href="/new-partner/">
-    <h4>Нова фирма</h4>
+    <h5>Нова фирма</h5>
   </a>
 </div>
 
 <div id="el7">
-  <a href="/glass-to-produce/">
-    <h4>Пакети за производство</h4>
+  <a href="/show-totals/">
+    <h5>Каса</h5>
   </a>
 </div>
 
 <div id="el8">
-  <a href="/show-totals/">
-    <h4>Каса</h4>
+  <a href="/partner-choice/">
+    <h5>Избери фирма</h5>
   </a>
 </div>
 
-{% if request.user.is_authenticated %}
-    <a href="{% url 'logout' %}">Изход</a>
-{% else %}
-    <a href="{% url 'login' %}">Вход</a>
-{% endif %}
+<div id="el9">
+    <h5>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Изход</a>
+        {% else %}
+            <a href="{% url 'login' %}">Вход</a>
+        {% endif %}
+    </h5>
+</div>
 
 <hr>
 

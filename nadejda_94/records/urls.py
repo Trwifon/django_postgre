@@ -11,4 +11,7 @@ urlpatterns = [
     path('month-reports/', views.month_reports, name='month_reports'),
     path('new-partner/', views.new_partner, name='new_partner'),
     path('show-totals/', views.show_totals, name='show_totals'),
+    path('partner-choice/', views.partner_choice, name='partner_choice'),
+
+    path('test/<pk>', views.test, name='test'),
 ]

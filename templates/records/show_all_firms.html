@@ -2,21 +2,21 @@
 
 {% block content %}
 
-<table style="border: 1px solid; border-collapse: collapse; text-align: center">
+<table>
     <tr>
-        <th style="border: 1px solid black; text-align: center">id</th>
-        <th style="border: 1px solid black; text-align: center">Фирма</th>
-        <th style="border: 1px solid black; text-align: center">Салдо</th>
+        <th>id</th>
+        <th>Фирма</th>
+        <th>Салдо</th>
     </tr>
     <tr>
-        <td style="border: 1px solid black">Сума:</td>
-        <td style="border: 1px solid black">{{total_sum}}</td>
+        <td>Сума:</td>
+        <td>{{total_sum}}</td>
     </tr>
     {% for record in records %}
     <tr>
-        <td style="border: 1px solid black">{{record.id}}</td>
-        <td style="border: 1px solid black">{{record.name}}</td>
-        <td style="border: 1px solid black">{{record.balance}}</td>
+        <td>{{record.id}}</td>
+        <td>{{record.name}}</td>
+        <td>{{record.balance}}</td>
     </tr>
     {% endfor %}
 </table>

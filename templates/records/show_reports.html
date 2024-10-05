@@ -2,34 +2,36 @@
 
 {% block content %}
 
-<table style="border: 1px solid; border-collapse: collapse; text-align: center">
+<table>
     <tr>
-        <th style="border: 1px solid black; text-align: center">id</th>
-        <th style="border: 1px solid black; text-align: center">Дата</th>
-        <th style="border: 1px solid black; text-align: center">Фирма</th>
-        <th style="border: 1px solid black; text-align: center">Склад</th>
-        <th style="border: 1px solid black; text-align: center">Вид поръчка</th>
-        <th style="border: 1px solid black; text-align: center">Сума</th>
-        <th style="border: 1px solid black; text-align: center">Салдо</th>
-        <th style="border: 1px solid black; text-align: center">Поръчка</th>
-        <th style="border: 1px solid black; text-align: center">Забележка</th>
+        <th>id</th>
+        <th>Дата</th>
+        <th>Фирма</th>
+        <th>Склад</th>
+        <th>Вид поръчка</th>
+        <th>Сума</th>
+        <th>Салдо</th>
+        <th>Поръчка</th>
+        <th>Забележка</th>
 
     </tr>
     <tr>
-        <td style="border: 1px solid black">Сума:</td>
-        <td style="border: 1px solid black">{{total_sum}}</td>
+        <td>Склад:</td>
+        <td>{{warehouse}}</td>
+        <td>Сума:</td>
+        <td>{{total_sum}}</td>
     </tr>
     {% for record in records %}
     <tr>
-        <td style="border: 1px solid black">{{record.id}}</td>
-        <td style="border: 1px solid black">{{record.created_at}}</td>
-        <td style="border: 1px solid black">{{record.partner.name}}</td>
-        <td style="border: 1px solid black">{{record.get_warehouse_display}}</td>
-        <td style="border: 1px solid black">{{record.get_order_type_display}}</td>
-        <td style="border: 1px solid black">{{record.amount}}</td>
-        <td style="border: 1px solid black">{{record.balance}}</td>
-        <td style="border: 1px solid black">{{record.order}}</td>
-        <td style="border: 1px solid black">{{record.note}}</td>
+        <td>{{record.id}}</td>
+        <td>{{record.created_at}}</td>
+        <td>{{record.partner.name}}</td>
+        <td>{{record.get_warehouse_display}}</td>
+        <td>{{record.get_order_type_display}}</td>
+        <td>{{record.amount}}</td>
+        <td>{{record.balance}}</td>
+        <td>{{record.order}}</td>
+        <td>{{record.note}}</td>
     </tr>
     {% endfor %}
 </table>

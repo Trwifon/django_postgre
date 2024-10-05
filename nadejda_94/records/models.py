@@ -4,7 +4,6 @@ from django.db import models
 from nadejda_94.records.choices import WarehouseChoices, OrderTypeChoices, PartnerTypeChoices
 
 
-
 class Partner(models.Model):
     name = models.CharField(max_length=50, unique=True)
     type = models.CharField(max_length=20, choices=PartnerTypeChoices.choices)

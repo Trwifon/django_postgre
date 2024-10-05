@@ -2,15 +2,16 @@
 
 {% block content %}
 
-<h3>{{title}}</h3>
-
-<div>
+<div class="form-container">
+    <p id="notes">{{title}}</p>
     <form method="POST" action="{% url 'create_record' %}">
-        <input type="submit" name="bal" value="Баланс и поръчка" />
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" name="save" value="Запис" />
+        {{ form.as_p }}
+        <button name="bal" class="btn btn-info">Баланс и поръчка</button>
+        <button name="save" class="btn btn-info">Запис</button>
     </form>
 </div>
+
+
 
 {% endblock content %}

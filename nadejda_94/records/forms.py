@@ -28,8 +28,8 @@ class RecordForm(ModelForm):
 
 class PartnerForm(ModelForm):
     partner = forms.ModelChoiceField(
-        queryset=Partner.objects.all().order_by('name'),
-        label='Фирма',
+    queryset=Partner.objects.all().order_by('name'),
+    label='Фирма',
     )
     class Meta:
         model = Partner

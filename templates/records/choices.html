@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<h3>{{title}}</h3>
-
-<div>
+<div class="form-container" >
+    <p id="notes">{{title}}</p>
     <form method="POST" action="">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="OK"/>
+        <button class="btn btn-info">OK</button>
     </form>
 </div>
 

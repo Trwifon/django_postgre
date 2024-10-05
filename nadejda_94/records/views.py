@@ -11,7 +11,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 import pandas as pd
 
-CURRENT_WAREHOUSE = 'M'
+users_dict = {'Trifon': 'M', 'Tsonka': 'O', 'Elena': 'A', 'Diana': 'P', 'Nadya': 'G'}
+
 
 def login_page(request):
     if request.method == 'POST':
@@ -46,7 +47,7 @@ def create_record(request):
 
     if request.method == 'POST':
         form = RecordForm(request.POST)
-        form.instance.warehouse = CURRENT_WAREHOUSE
+        form.instance.warehouse = users_dict[request.user.username]
 
         if form.is_valid():
             partner = Partner.objects.get(id=form['partner'].value())
@@ -86,13 +87,13 @@ def create_record(request):
 
 
 def home(request):
-    results = Record.objects \
-        .filter(created_at=datetime.today(), warehouse=CURRENT_WAREHOUSE) \
-        .order_by('id')
 
-    # results = Record.objects \
-    #     .filter(created_at="2024-08-30", warehouse=CURRENT_WAREHOUSE) \
-    #     .order_by('id')
+    if not request.user.username:
+        return redirect(login_page)
+
+    results = Record.objects \
+        .filter(created_at=datetime.today(), warehouse=users_dict[request.user.username]) \
+        .order_by('id')
 
     total_sum = results.filter(order_type='C').aggregate(Sum('amount'))
     total = total_sum['amount__sum']
@@ -111,13 +112,21 @@ def day_reports(request):
     if request.method == 'POST':
         current_warehouse = request.POST.get('warehouse')
 
-        results = Record.objects\
-            .filter(created_at=datetime.today(), warehouse=current_warehouse)\
-            .order_by('id')
+        if request.user.username == 'Trifon' and current_warehouse == 'M':
+            results = Record.objects \
+                .filter(created_at=datetime.today()).order_by('id')
+        elif request.user.username != 'Trifon' and current_warehouse == 'M':
+            results = Record.objects\
+                .filter(created_at=datetime.today(), warehouse=users_dict[request.user.username])\
+                .order_by('id')
+        else:
+            results = Record.objects\
+                .filter(created_at=datetime.today(), warehouse=current_warehouse)\
+                .order_by('id')
 
         total_sum = results.filter(order_type='C').aggregate(Sum('amount'))
         total = total_sum['amount__sum']
-        payload = {'records': results, 'total_sum': total}
+        payload = {'records': results, 'total_sum': total, 'warehouse': current_warehouse}
 
         return render(request, template_name='show_reports.html', context=payload)
 
@@ -148,9 +157,6 @@ def firm_reports(request):
 
             return response
 
-            # payload = {'records': result}
-            # return render(request, template_name='show_all_firms.html', context=payload)
-
         results = Record.objects.filter(partner_id=partner).order_by('id')
 
         if results:
@@ -171,8 +177,8 @@ def month_reports(request):
 
     if request.method == 'POST':
         form = MonthWarehouseForm()
-        current_warehouse = request.POST.get('warehouse')
-        current_warehouse = current_warehouse if current_warehouse != 'M' else CURRENT_WAREHOUSE
+        warehouse = request.POST.get('warehouse')
+        current_warehouse = warehouse if warehouse != 'M' else users_dict[request.user.username]
         current_year = request.POST.get('year')
         current_month = request.POST.get('month')
 
@@ -207,12 +213,40 @@ def new_partner(request):
     return render(request, template_name='choices.html', context=context)
 
 
-@login_required(login_url='login')
+def partner_choice(request):
+    form = PartnerForm()
+    partner_name, partner_balance = 'Клиент', 0
+
+    partner_id = request.GET.get('partner')
+
+    partner = Partner.objects.values('name', 'balance').filter(id=partner_id)
+
+    if partner:
+        partner_name, partner_balance = partner[0]['name'], partner[0]['balance']
+
+
+
+
+
+    title = 'Избери фирма'
+
+    context = {'title': title, 'form': form, 'partner_name': partner_name, 'partner_balance': partner_balance}
+    return render(request, 'partner_choice.html', context)
+
+
 def show_totals(request):
     total_sum = Record.objects.filter(order_type='C').aggregate(Sum('amount'))
-    total = total_sum['amount__sum']
+
+    total = total_sum['amount__sum'] if request.user.username in ('Trifon', 'Anton') else 0
+
     payload = {'total_sum': total}
     return render(request, 'show_totals.html', context=payload)
+
+
+def test(request, pk):
+    records = Record.objects.filter(partner_id=pk)
+    context = {'records': records}
+    return render(request, 'test.html', context)
 
 
 
