@@ -5,8 +5,6 @@
 #el5 {display: inline-block;margin-right:10px;width:140px;text-align:center}
 #el6 {display: inline-block;margin-right:10px;width:140px;text-align:center}
 #el7 {display: inline-block;margin-right:10px;width:140px;text-align:center}
-#el8 {display: inline-block;margin-right:10px;width:140px;text-align:center}
-#el9 {display: inline-block;margin-right:10px;width:140px;text-align:center}
 
 main {
     border: 2px solid blue;
@@ -41,7 +39,7 @@ input, select {
 
 #notes {
    color: #7393B3;
-   font-size: 30px;
+   font-size: 25px;
 }
 
 table {

@@ -41,49 +41,77 @@ def logout_user(request):
     return redirect('login')
 
 
-def create_record(request):
+def create_record(request, pk):
     form = RecordForm()
-    title = 'Нов запис'
+    partner = Partner.objects.get(id=pk)
+    partner_name = partner.name
+    open_balance = partner.balance
+    title = f"Нов запис - фирма: {partner_name}, " \
+            f"начално салдо: {open_balance} лв"
+
 
     if request.method == 'POST':
         form = RecordForm(request.POST)
-        form.instance.warehouse = users_dict[request.user.username]
 
         if form.is_valid():
-            partner = Partner.objects.get(id=form['partner'].value())
-            partner_id = partner.id
-            order_type = form.instance.order_type
-            amount = form.cleaned_data['amount']
-            open_balance = partner.balance
-
-            current_order = get_order(order_type)
-            amount = -abs(int(amount)) if partner_id == 1 else amount
-            close_balance = get_close_balance(partner_id, order_type, open_balance, amount)
+            record = form.save(commit=False)
+            record.warehouse = users_dict[request.user.username]
+            record.balance = get_close_balance(
+                pk,
+                record.order_type,
+                open_balance,
+                record.amount
+                )
+            record.order = get_order(record.order_type)
+            record.partner_id = pk
 
             if 'bal' in request.POST:
-                title = f"Начално салдо: {open_balance}, Крайно салдо: {close_balance}, Поръчка: {current_order}"
+                title = f"{title}, " \
+                        f"крайно салдо: {record.balance}, " \
+                        f"поръчка: {record.order}"
 
                 context = {'title': title, 'form': form}
                 return render(request, 'create_record.html', context)
 
-            else:
-                title = 'Save'
+            elif 'save' in request.POST:
+                update_order(record.order_type)
 
-                form.instance.partner = partner
-                form.instance.amount = amount
-                form.instance.balance = close_balance
-                form.instance.order = current_order
-                form.save()
-
-                partner.balance = close_balance
+                partner.balance = record.balance
                 partner.save()
 
-                update_order(order_type)
-
+                record.save()
                 return redirect('home')
 
-    context = {'title': title, 'form': form}
+    context = {'title': title,
+               'partner_name': partner_name,
+               'open_balance': open_balance,
+               'form': form}
     return render(request, 'create_record.html', context)
+
+    #         if 'bal' in request.POST:
+    #             title = f"Начално салдо: {open_balance}, Крайно салдо: {close_balance}, Поръчка: {current_order}"
+    #
+    #             context = {'title': title, 'form': form}
+    #             return render(request, 'create_record.html', context)
+    #
+    #         else:
+    #             title = 'Save'
+    #
+    #             form.instance.partner = partner
+    #             form.instance.amount = amount
+    #             form.instance.balance = close_balance
+    #             form.instance.order = current_order
+    #             form.save()
+    #
+    #             partner.balance = close_balance
+    #             partner.save()
+    #
+    #             update_order(order_type)
+    #
+    #             return redirect('home')
+    #
+    # context = {'title': title, 'form': form}
+    # return render(request, 'create_record.html', context)
 
 
 def home(request):
@@ -100,7 +128,9 @@ def home(request):
 
     partners = Partner.objects.all().order_by('name')
 
-    payload = {'records': results, 'total_sum': total}
+    form = PartnerForm()
+
+    payload = {'records': results, 'total_sum': total, 'form': form}
 
     return render(request, template_name='home.html', context=payload)
 
@@ -134,41 +164,34 @@ def day_reports(request):
     return render(request, 'choices.html', context=context)
 
 
-def firm_reports(request):
-    form = PartnerForm()
-    title = 'Фирмен отчет'
+def firm_reports(request, pk):
 
-    if request.method == 'POST':
-        partner = request.POST.get('partner')
-        if int(partner) == 1:
-            payload = {'records': '', 'total_sum': 'Няма такава фирма'}
-            return render(request, template_name='show_reports.html', context=payload)
-
-        if int(partner) == 2:
-            result = Partner.objects.all().values('name', 'balance').order_by('name')
-            df = pd.DataFrame(list(result))
-
-            name = f"Firmi - {datetime.today().date()}"
-
-            response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-            response['Content-Disposition'] = f'attachment; filename={name}.xlsx'
-
-            df.to_excel(response, index=False, engine='openpyxl')
-
-            return response
-
-        results = Record.objects.filter(partner_id=partner).order_by('id')
-
-        if results:
-            total = results.reverse()[0].balance
-        else:
-            total = 0
-
-        payload = {'records': results, 'total_sum': total}
+    if pk == 1:
+        payload = {'records': '', 'total_sum': 'Няма такава фирма'}
         return render(request, template_name='show_reports.html', context=payload)
 
-    context = {'title': title, 'form': form}
-    return render(request, template_name='choices.html', context=context)
+    if pk == 2:
+        result = Partner.objects.all().values('name', 'balance').order_by('name')
+        df = pd.DataFrame(list(result))
+
+        name = f"Firmi - {datetime.today().date()}"
+
+        response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        response['Content-Disposition'] = f'attachment; filename={name}.xlsx'
+
+        df.to_excel(response, index=False, engine='openpyxl')
+
+        return response
+
+    results = Record.objects.filter(partner_id=pk).order_by('id')
+
+    if results:
+        total = results.reverse()[0].balance
+    else:
+        total = 0
+
+    payload = {'records': results, 'total_sum': total}
+    return render(request, template_name='show_reports.html', context=payload)
 
 
 def month_reports(request):
@@ -215,22 +238,20 @@ def new_partner(request):
 
 def partner_choice(request):
     form = PartnerForm()
-    partner_name, partner_balance = 'Клиент', 0
 
-    partner_id = request.GET.get('partner')
+    if request.method == 'POST':
+        pk = request.POST.get('partner')
 
-    partner = Partner.objects.values('name', 'balance').filter(id=partner_id)
+        if 'record' in request.POST:
+            link = f"/{pk}/create-record"
+            return redirect(link)
 
-    if partner:
-        partner_name, partner_balance = partner[0]['name'], partner[0]['balance']
-
-
-
-
+        elif 'report' in request.POST:
+            link = f"/{pk}/firm-reports"
+            return redirect(link)
 
     title = 'Избери фирма'
-
-    context = {'title': title, 'form': form, 'partner_name': partner_name, 'partner_balance': partner_balance}
+    context = {'title': title, 'form': form}
     return render(request, 'partner_choice.html', context)
 
 
@@ -242,11 +263,6 @@ def show_totals(request):
     payload = {'total_sum': total}
     return render(request, 'show_totals.html', context=payload)
 
-
-def test(request, pk):
-    records = Record.objects.filter(partner_id=pk)
-    context = {'records': records}
-    return render(request, 'test.html', context)
 
 
 

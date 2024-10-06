@@ -16,4 +16,5 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(Record)
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ['warehouse', 'order_type', 'partner', 'amount', 'order', 'note']
+    list_display = ['id', 'warehouse', 'order_type', 'partner', 'amount', 'order', 'note']
+    list_filter = ['id']

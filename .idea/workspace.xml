@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a8ef104-6789-419b-8a3a-58c7cd2c5ab5" name="Changes" comment="folders reorder">
+      <change afterPath="$PROJECT_DIR$/templates/records/partner_choice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nadejda_94.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nadejda_94/records/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nadejda_94/records/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nadejda_94/records/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nadejda_94/records/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/records/create_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/records/create_record.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/records/nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/records/nav_bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/records/show_reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/records/show_reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/records/test.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2kgBfl9KJzlfPnxGoAoYtxD5vPv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Shell Script" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PythonProjectsNadejda\nadejda_94\templates" />
+      <recent name="D:\PythonProjectsNadejda\nadejda_94\nadejda_94\records\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PythonProjectsNadejda\nadejda_94\templates\records" />
+      <recent name="D:\PythonProjectsNadejda\nadejda_94\static\js" />
+      <recent name="D:\PythonProjectsNadejda\nadejda_94\static\styles" />
+      <recent name="D:\PythonProjectsNadejda\nadejda_94" />
+      <recent name="D:\PythonProjectsNadejda\nadejda_94\nadejda_94" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nadejda_94" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/nadejda_94/records" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nadejda_94/records/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a8ef104-6789-419b-8a3a-58c7cd2c5ab5" name="Changes" comment="" />
+      <created>1723695445175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723695445175</updated>
+    </task>
+    <task id="LOCAL-00001" summary="create record">
+      <created>1725305290954</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725305290954</updated>
+    </task>
+    <task id="LOCAL-00002" summary="month report temp">
+      <created>1725481194154</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725481194154</updated>
+    </task>
+    <task id="LOCAL-00003" summary="new_partner">
+      <created>1725637904058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725637904058</updated>
+    </task>
+    <task id="LOCAL-00004" summary="before pandas">
+      <created>1725688119014</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725688119014</updated>
+    </task>
+    <task id="LOCAL-00005" summary="pandas - firms daily report">
+      <created>1725724895328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725724895328</updated>
+    </task>
+    <task id="LOCAL-00006" summary="folders reorder">
+      <created>1726301711177</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726301711177</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create record" />
+    <MESSAGE value="month report temp" />
+    <MESSAGE value="new_partner" />
+    <MESSAGE value="before pandas" />
+    <MESSAGE value="pandas - firms daily report" />
+    <MESSAGE value="folders reorder" />
+    <option name="LAST_COMMIT_MESSAGE" value="folders reorder" />
+  </component>
+</project>

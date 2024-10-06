@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="form-container" >
+    <p id="notes">{{title}}</p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name="record" class="btn btn-info">Нов запис</button>
+        <button name="report" class="btn btn-info">Отчет</button>
+    </form>
+</div>
+
+{% endblock content %}
+

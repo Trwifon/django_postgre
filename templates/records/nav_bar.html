@@ -5,8 +5,8 @@
 </div>
 
 <div id="el2">
-    <a href="/create-record/">
-        <h5>Нов запис</h5>
+    <a href="/partner-choice/">
+        <h5>Фирма</h5>
     </a>
 </div>
 
@@ -17,36 +17,24 @@
 </div>
 
 <div id="el4">
-  <a href="/firm-reports/">
-    <h5>Фирмен отчет</h5>
-  </a>
-</div>
-
-<div id="el5">
   <a href="/month-reports/">
     <h5>Месечни отчети</h5>
   </a>
 </div>
 
-<div id="el6">
+<div id="el5">
   <a href="/new-partner/">
     <h5>Нова фирма</h5>
   </a>
 </div>
 
-<div id="el7">
+<div id="el6">
   <a href="/show-totals/">
     <h5>Каса</h5>
   </a>
 </div>
 
-<div id="el8">
-  <a href="/partner-choice/">
-    <h5>Избери фирма</h5>
-  </a>
-</div>
-
-<div id="el9">
+<div id="el7">
     <h5>
         {% if request.user.is_authenticated %}
             <a href="{% url 'logout' %}">Изход</a>

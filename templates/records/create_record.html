@@ -4,14 +4,13 @@
 
 <div class="form-container">
     <p id="notes">{{title}}</p>
-    <form method="POST" action="{% url 'create_record' %}">
+
+    <form method="POST" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <button name="bal" class="btn btn-info">Баланс и поръчка</button>
         <button name="save" class="btn btn-info">Запис</button>
     </form>
 </div>
-
-
 
 {% endblock content %}

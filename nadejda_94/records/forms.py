@@ -5,15 +5,15 @@ from .models import Record, Partner
 
 
 class RecordForm(ModelForm):
-    partner = forms.ModelChoiceField(
-        queryset=Partner.objects.all().order_by('name'),
-        label='Фирма',
-    )
+    # partner = forms.ModelChoiceField(
+    #     queryset=Partner.objects.all().order_by('name'),
+    #     label='Фирма',
+    # )
 
     class Meta:
         model = Record
         fields = [
-            'partner',
+            # 'partner',
             'order_type',
             'amount',
             'note',
