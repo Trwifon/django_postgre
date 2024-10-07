@@ -142,7 +142,7 @@ def day_reports(request):
     return render(request, 'choices.html', context=context)
 
 
-def firm_reports(request, pk):
+def firm_reports(request, pk: int):
 
     if pk == 1:
         payload = {'records': '', 'total_sum': 'Няма такава фирма'}
@@ -221,12 +221,10 @@ def partner_choice(request):
         pk = request.POST.get('partner')
 
         if 'record' in request.POST:
-            link = f"/{pk}/create-record"
-            return redirect(link)
+            return redirect('create_record', pk)
 
         elif 'report' in request.POST:
-            link = f"/{pk}/firm-reports"
-            return redirect(link)
+            return redirect('firm_reports', pk)
 
     title = 'Избери фирма'
     context = {'title': title, 'form': form}

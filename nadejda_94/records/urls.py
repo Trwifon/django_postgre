@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('<int:pk>/', include([
         path('create-record/', views.create_record, name='create_record' ),
-        path('firm-reports/', views.firm_reports, name='firms_reports'),                                                                    ])),
+        path('firm-reports/', views.firm_reports, name='firm_reports'),                                                                    ])),
 
     path('day-reports/', views.day_reports, name='day_reports'),
     path('month-reports/', views.month_reports, name='month_reports'),
