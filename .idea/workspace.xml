@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a8ef104-6789-419b-8a3a-58c7cd2c5ab5" name="Changes" comment="folders reorder">
-      <change afterPath="$PROJECT_DIR$/templates/records/partner_choice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nadejda_94.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nadejda_94/records/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nadejda_94/records/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nadejda_94/records/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nadejda_94/records/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nadejda_94/records/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/records/create_record.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/records/create_record.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/records/nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/records/nav_bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/records/show_reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/records/show_reports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/records/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

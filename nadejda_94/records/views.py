@@ -65,6 +65,9 @@ def create_record(request, pk):
             record.order = get_order(record.order_type)
             record.partner_id = pk
 
+            if record.partner_id == 1:
+                record.amount = -abs(record.amount)
+
             if 'bal' in request.POST:
                 title = f"{title}, " \
                         f"крайно салдо: {record.balance}, " \
@@ -87,31 +90,6 @@ def create_record(request, pk):
                'open_balance': open_balance,
                'form': form}
     return render(request, 'create_record.html', context)
-
-    #         if 'bal' in request.POST:
-    #             title = f"Начално салдо: {open_balance}, Крайно салдо: {close_balance}, Поръчка: {current_order}"
-    #
-    #             context = {'title': title, 'form': form}
-    #             return render(request, 'create_record.html', context)
-    #
-    #         else:
-    #             title = 'Save'
-    #
-    #             form.instance.partner = partner
-    #             form.instance.amount = amount
-    #             form.instance.balance = close_balance
-    #             form.instance.order = current_order
-    #             form.save()
-    #
-    #             partner.balance = close_balance
-    #             partner.save()
-    #
-    #             update_order(order_type)
-    #
-    #             return redirect('home')
-    #
-    # context = {'title': title, 'form': form}
-    # return render(request, 'create_record.html', context)
 
 
 def home(request):
